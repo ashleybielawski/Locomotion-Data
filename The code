@@ -1,0 +1,42 @@
+#upload data files
+
+import numpy as np
+flyd = np.loadtxt('id_test.txt')
+timestamp = np.loadtxt('timestamp_test.txt')
+xpos = np.loadtxt('ximage_test.txt')
+ypos = np.loadtxt('yimage_test.txt')
+
+print (flyd)
+print (timestamp)
+print (xpos)
+print (ypos)
+print(flyd[61])
+
+
+#flyd assigns a number for each fly. There are two in my assay. Append the index of each 0 or 1 to their own array. 
+#this can be used to extract data from the other data files - xposition, yposition, and timestamp
+
+fly1 = flyd == 0
+
+flyd1 = np.array([])
+flyd2 = np.array([])
+flyd_review = np.array([])
+
+for i in range(0, len(fly1)):
+    if fly1[i] == 0:
+        flyd1 = np.append(flyd1, fly1[i])
+    elif fly1[i] == 1:
+        flyd2 = np.append(flyd2, fly1[i])
+    else:
+        flyd_review = np.append(flyd_review, fly1[i])
+
+print(flyd1)
+print(flyd2)
+print(flyd_review)
+print(fly1)
+        
+#def identify(flyd)
+    #use flyd1 or flyd2 indices to pull out correlating values from x, y, and time arrays.
+    
+    
+#Graph fly1 and fly2 d/t 
